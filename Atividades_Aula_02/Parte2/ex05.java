@@ -8,13 +8,11 @@ public class ex05 {
         Scanner scanner = new Scanner(System.in);
         int[] numeros = new int[10];
         
-        // Leitura dos números
         System.out.println("Digite 10 números inteiros:");
         for (int i = 0; i < numeros.length; i++) {
             numeros[i] = scanner.nextInt();
         }
         
-        // Encontrar o maior e o menor valor
         int maior = numeros[0];
         int menor = numeros[0];
         
@@ -27,7 +25,6 @@ public class ex05 {
             }
         }
         
-        // Imprimir o maior e o menor valor
         System.out.println("O maior valor é: " + maior);
         System.out.println("O menor valor é: " + menor);
         

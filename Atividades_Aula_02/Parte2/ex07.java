@@ -5,7 +5,7 @@ public class ex07 {
     public static void main(String[] args) {
         double[][] notas = new double[3][4];
         
-        // Leitura das notas dos alunos
+    
         for (int i = 0; i < notas.length; i++) {
             for (int j = 0; j < notas[i].length; j++) {
                 System.out.println("Digite a nota do aluno " + (i + 1) + " na disciplina " + (j + 1) + ":");
@@ -13,7 +13,6 @@ public class ex07 {
             }
         }
         
-        // Encontrar a nota mais alta e mais baixa em cada disciplina
         for (int j = 0; j < notas[0].length; j++) {
             double maiorNota = notas[0][j];
             double menorNota = notas[0][j];
@@ -27,7 +26,6 @@ public class ex07 {
                 }
             }
             
-            // Imprimir a nota mais alta e mais baixa para a disciplina atual
             System.out.println("Disciplina " + (j + 1) + ":");
             System.out.println("Maior nota: " + maiorNota);
             System.out.println("Menor nota: " + menorNota);

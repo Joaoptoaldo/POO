@@ -6,7 +6,6 @@ public class ex06 {
         String[] cidades = new String[5];
         int[] populacoes = new int[5];
         
-        // Leitura dos nomes das cidades e suas populações
         for (int i = 0; i < cidades.length; i++) {
             System.out.println("Digite o nome da cidade " + (i + 1) + ":");
             cidades[i] = System.console().readLine();
@@ -14,7 +13,6 @@ public class ex06 {
             populacoes[i] = Integer.parseInt(System.console().readLine());
         }
         
-        // Encontrar a cidade mais populosa
         int indiceMaisPopulosa = 0;
         for (int i = 1; i < populacoes.length; i++) {
             if (populacoes[i] > populacoes[indiceMaisPopulosa]) {
@@ -22,7 +20,6 @@ public class ex06 {
             }
         }
         
-        // Imprimir o nome da cidade mais populosa
         System.out.println("A cidade mais populosa é: " + cidades[indiceMaisPopulosa]);
     }
     

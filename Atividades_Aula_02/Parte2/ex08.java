@@ -7,13 +7,12 @@ public class ex08 {
         int countPares = 0;
         int countImpares = 0;
         
-        // Leitura dos números
         System.out.println("Digite 10 números inteiros:");
         for (int i = 0; i < numeros.length; i++) {
             numeros[i] = Integer.parseInt(System.console().readLine());
         }
         
-        // Contar quantos números são pares e quantos são ímpares
+
         for (int numero : numeros) {
             if (numero % 2 == 0) {
                 countPares++;
@@ -22,7 +21,6 @@ public class ex08 {
             }
         }
         
-        // Imprimir o resultado
         System.out.println("Quantidade de números pares: " + countPares);
         System.out.println("Quantidade de números ímpares: " + countImpares);
     }
