@@ -4,7 +4,7 @@ public class Ex {
     // Este é o ponto de entrada (onde o programa "começa")
     public static void main(String[] args) {
         
-        // Declarando variáveis (Java é chato com tipos: tem que dizer o que é)
+        
         String nome = "João Toaldo";
         int semestre = 3;
         double progresso = 44.0; // 100%
