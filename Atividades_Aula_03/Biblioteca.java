@@ -14,6 +14,9 @@ public class Biblioteca {
         System.out.print("Digite o ano de publicação: ");
         l.anoPubli = leitor.nextInt();
         leitor.nextInt(); 
-        
+
+        System.out.println("O nome é: " + l.titulo);
+        System.out.println("Ano de publicação: " + l.anoPubli);
+        System.out.println("Autor: " + l.autor);
         }
 }

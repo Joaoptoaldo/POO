@@ -17,7 +17,6 @@ public class executaCarro {
         System.out.print("Digite o ano de fabricação: ");
         c1.anoFabrica = leitor.nextInt();
         leitor.nextLine(); 
-  
         System.out.println();
 
         // carro 2 

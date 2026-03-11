@@ -1,7 +1,6 @@
 package Atividades_Aula_02.Parte2;
 
 public class ex08 {
-    //8 - Escreva um programa Java que use um vetor para armazenar 10 números inteiros lidos do usuário e depois imprima na tela quantos números são pares e quantos são ímpares.
     public static void main(String[] args) {
         int[] numeros = new int[10];
         int countPares = 0;

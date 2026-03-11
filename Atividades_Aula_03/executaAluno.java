@@ -25,13 +25,14 @@ public class executaAluno {
         
         double media = (aluno.nota1 + aluno.nota2 + aluno.nota3) / 3;
 
-        System.out.println("\n--- Resultado ---");
+        System.out.println("\nResultado");
         System.out.println("Aluno: " + aluno.nome);
         System.out.println("Média: " + media);
 
         if(media >= 6) {
             System.out.println("Situação: Aprovado");
-        } else {
+        } 
+        if(media < 6) {
             System.out.println("Situação: Reprovado");
         }
         
