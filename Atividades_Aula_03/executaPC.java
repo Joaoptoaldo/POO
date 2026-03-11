@@ -14,7 +14,7 @@ public class executaPC {
         pc1.modelo = leitor.nextLine();
         System.out.print("Digite o preço: ");
         pc1.preco = leitor.nextDouble();
-        leitor.nextDouble(); 
+        leitor.nextLine();
   
        // System.out.println();
 

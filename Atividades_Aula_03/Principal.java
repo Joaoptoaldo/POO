@@ -12,15 +12,13 @@ public class Principal {
         
         System.out.print("Digite o título do Filme 1: ");
         f1.titulo = scanner.nextLine();
-        f1.titulo = "";
-        System.out.print("Digite o diretor do Filme 1: "+f1.diretor);
+        System.out.print("Digite o diretor do Filme 1: ");
         f1.diretor = scanner.nextLine();
         System.out.print("Digite o ano de lançamento do Filme 1: ");
         f1.anoLancamento = scanner.nextInt();
         scanner.nextLine(); 
         System.out.print("Digite o gênero do Filme 1: ");
         f1.genero = scanner.nextLine();
-        f1.genero = "";
         System.out.println();
 
         // FILME 2 
