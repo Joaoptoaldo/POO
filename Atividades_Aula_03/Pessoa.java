@@ -1,4 +1,4 @@
-package primeiroOO;
+package Atividades_Aula_03;
 
 public class Pessoa {
 	//3 - Crie uma classe Pessoa com os atributos 

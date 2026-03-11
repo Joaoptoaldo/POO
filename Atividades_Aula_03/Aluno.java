@@ -17,5 +17,4 @@ public class Aluno {
 	public int nota1;
 	public int nota2;
 	public int nota3;
-
 }

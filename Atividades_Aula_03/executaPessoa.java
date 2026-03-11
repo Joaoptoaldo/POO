@@ -1,4 +1,4 @@
-package primeiroOO;
+package Atividades_Aula_03;
 
 import java.util.Scanner;
 

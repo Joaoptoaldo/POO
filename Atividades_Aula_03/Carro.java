@@ -1,4 +1,4 @@
-package primeiroOO;
+package Atividades_Aula_03;
 
 public class Carro {
 	//1 - Crie uma classe chamada Carro que possua 3 atributos: 

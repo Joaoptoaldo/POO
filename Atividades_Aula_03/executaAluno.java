@@ -3,7 +3,7 @@ package Atividades_Aula_03;
 import java.util.Scanner;
 
 public class executaAluno {
-    public static void main(String[] args) { // O método main deve envolver o código
+    public static void main(String[] args) { 
         Scanner leitor = new Scanner(System.in);
         
         Aluno aluno = new Aluno();
@@ -15,7 +15,7 @@ public class executaAluno {
         aluno.matricula = leitor.nextInt();
         
         System.out.print("Informe a nota 1: ");
-        aluno.nota1 = leitor.nextInt(); // Use double para notas
+        aluno.nota1 = leitor.nextInt(); 
         
         System.out.print("Informe a nota 2: ");
         aluno.nota2 = leitor.nextInt();
