@@ -1,4 +1,4 @@
-package pkg;
+package Atividades_Aula_02;
 
 import java.util.Scanner;
 
@@ -36,7 +36,7 @@ public class main {
 		/*
 		 * int i = 0; while(i<10) { System.out.println("I vale com while: "+i); i++; }
 		 */
-//		
+		
 //		int i = 0;
 //		do {
 //			System.out.println("I vale com while: "+i);
@@ -50,7 +50,7 @@ public class main {
 		
 		for(int i = 0; i < 2; i++) {
 			for(int j = 0; j < 3; j++) {
-				System.out.println("Digite o elemento ["+i+"]["+i+"]:");
+				System.out.println("Digite o elemento ["+i+"]["+j+"]:");
 				matriz[i][j] = teclado.nextInt();
 			}
 		}
@@ -59,10 +59,11 @@ public class main {
 			for(int j = 0; j < matriz[i].length;j++) {
 				System.out.print(matriz[i][j]+"\t");
 			}
-			//System.out.print("\n");
+			System.out.println();
 		}
 	}
 	
 }
 
 //4, 5, 8, 10; 
+
