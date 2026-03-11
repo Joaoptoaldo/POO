@@ -5,12 +5,12 @@ import java.util.Scanner;
 public class ex05 {
     //5 - Escreva um programa Java que use um vetor para ler 10 números inteiros lidos do usuário e depois imprima o maior e o menor valor
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        Scanner leitor = new Scanner(System.in);
         int[] numeros = new int[10];
         
         System.out.println("Digite 10 números inteiros:");
         for (int i = 0; i < numeros.length; i++) {
-            numeros[i] = scanner.nextInt();
+            numeros[i] = leitor.nextInt();
         }
         
         int maior = numeros[0];
@@ -28,6 +28,6 @@ public class ex05 {
         System.out.println("O maior valor é: " + maior);
         System.out.println("O menor valor é: " + menor);
         
-        scanner.close();
+        leitor.close();
     }
 }

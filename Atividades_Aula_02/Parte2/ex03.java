@@ -11,15 +11,15 @@ public class ex03 {
 
         System.out.println("Digite as notas dos 5 alunos: ");
         double[] notas = new double[5];
-        double somatorio = 0, media;
+        double soma = 0, media;
 
         for (int i = 0; i < notas.length; i++) {
             System.out.print("Aluno " + (i + 1) + ": ");
             notas[i] = teclado.nextDouble();
-            somatorio += notas[i];
+            soma += notas[i];
         }
 
-        media = somatorio / notas.length;
+        media = soma / notas.length;
 
         System.out.println("A média das notas é: " + media);
     }
