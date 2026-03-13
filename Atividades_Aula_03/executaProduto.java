@@ -1,4 +1,4 @@
-package Atividades_Aula_03;
+//package Atividades_Aula_03;
 
 import java.util.Scanner;
 
@@ -23,7 +23,6 @@ public class executaProduto {
         leitor.nextLine(); 
         System.out.print("Digite a quantidade em estoque: ");
         novo.quantidadeEmEstoque = leitor.nextInt();
-        leitor.nextInt(); 
 
         System.out.println("O nome do produto é: " + novo.nome);
         System.out.println("O preço do produto é: " + novo.preco);
@@ -32,3 +31,4 @@ public class executaProduto {
         System.out.println("O valor total em estoque é: " + valorTotal);
 	}
 }
+

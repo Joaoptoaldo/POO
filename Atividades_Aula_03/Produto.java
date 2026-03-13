@@ -1,4 +1,4 @@
-package Atividades_Aula_03;
+//package Atividades_Aula_03;
 
 public class Produto {
 //	5 - Crie uma classe chamada Produto com os atributos:
