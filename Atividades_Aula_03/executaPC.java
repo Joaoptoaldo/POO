@@ -15,8 +15,8 @@ public class executaPC {
         System.out.print("Digite o preço: ");
         pc1.preco = leitor.nextDouble();
         leitor.nextLine();
-  
-       // System.out.println();
+        System.out.print("Digite o tipo: ");
+        pc1.tipo = leitor.nextLine();
 
         // pc 2
         Computador pc2 = new Computador();
@@ -24,13 +24,23 @@ public class executaPC {
         pc2.modelo = "ROG";
         pc2.tipo = "notebook";
         pc2.preco = 3.200;
-        
 
+        // exibe pc 1
+        System.out.println("\nResultado");
+        System.out.println("Computador 1:");
+        System.out.println("Marca: " + pc1.marca);
+        System.out.println("Modelo: " + pc1.modelo);
+        System.out.println("Tipo: " + pc1.tipo);
+        System.out.println("Preço: " + pc1.preco);
+        System.out.println();
+        
+        // exibir pc 2
+        System.out.println("Computador 2:");
         System.out.println("Marca: "+pc2.marca);
         System.out.println("Modelo: "+pc2.modelo);
         System.out.println("Tipo: "+pc2.tipo);
         System.out.println("Preço: "+pc2.preco);
- 
         System.out.println();
+
     }
 }

@@ -31,6 +31,18 @@ public class executaCarro {
         c2.anoFabrica = leitor.nextInt();
         leitor.nextLine(); 
   
+        // Exibir Carro 1
+        System.out.println("Carro 1:");
+        System.out.println("Marca: " + c1.marca);
+        System.out.println("Modelo: " + c1.modelo);
+        System.out.println("Ano de fabricação: " + c1.anoFabrica);
+        System.out.println();
+
+        // Exibir Carro 2
+        System.out.println("Carro 2:");
+        System.out.println("Marca: " + c2.marca);
+        System.out.println("Modelo: " + c2.modelo);
+        System.out.println("Ano de fabricação: " + c2.anoFabrica);
         System.out.println();
     }
 
