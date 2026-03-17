@@ -31,9 +31,12 @@ public class executaAluno {
 
         if(media >= 6) {
             System.out.println("Situação: Aprovado");
-        } else {
+        } 
+        
+        else if(media < 6) {
             System.out.println("Situação: Reprovado");
         }
+
         leitor.close(); 
 
     }
