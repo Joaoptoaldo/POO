@@ -1,4 +1,4 @@
-package Atividades_Aula_03;
+package biblioteca;
 
 import java.util.Scanner;
 
@@ -18,6 +18,8 @@ public class Biblioteca {
         System.out.println("O nome é: " + l.titulo);
         System.out.println("Ano de publicação: " + l.anoPubli);
         System.out.println("Autor: " + l.autor);
+
+        leitor.close();
         }
 
 }

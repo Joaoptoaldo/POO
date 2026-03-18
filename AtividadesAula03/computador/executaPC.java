@@ -1,4 +1,4 @@
-package Atividades_Aula_03;
+package computador;
 
 import java.util.Scanner;
 

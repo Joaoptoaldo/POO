@@ -1,4 +1,4 @@
-package Atividades_Aula_03;
+package atividades_aula_03;
 
 public class Livro {
 	//4 - Crie uma classe Livro com os atributos 

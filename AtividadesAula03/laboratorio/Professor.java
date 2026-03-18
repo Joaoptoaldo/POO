@@ -1,4 +1,4 @@
-package Atividades_Aula_03;
+package laboratorio;
 
 public class Professor {
 	public String nome;

@@ -1,4 +1,4 @@
-package Atividades_Aula_03;
+package aluno;
 
 public class Aluno {
 //	6 - Crie uma classe chamada Aluno com os atributos:
@@ -12,9 +12,11 @@ public class Aluno {
 //		•Nota2
 //
 //		•nota3
+
 	public String nome;
 	public int matricula;
 	public int nota1;
 	public int nota2;
 	public int nota3;
 }
+

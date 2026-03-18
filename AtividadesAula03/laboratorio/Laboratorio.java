@@ -1,4 +1,4 @@
-package Atividades_Aula_03;
+package laboratorio;
 
 import java.util.Scanner; 
 

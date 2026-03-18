@@ -1,4 +1,4 @@
-package Atividades_Aula_03;
+package filme;
 
 import java.util.Scanner;
 
