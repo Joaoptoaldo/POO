@@ -4,4 +4,4 @@ Repositório com materiais, exemplos e exercícios com **Programação Orientada
 
 ## Material de apoio 
 
-- [Resumo: Orientação a Objetos](Orientação-a-Objetos/resumao-orientacao-objetos.md)
+- [Resumo: Orientação a Objetos](Orientação-a-Objetos/resumo-orientacao-objetos.md)
