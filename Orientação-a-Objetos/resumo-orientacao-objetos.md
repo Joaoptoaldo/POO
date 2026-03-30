@@ -37,60 +37,57 @@ Orientação a Objetos (OO) é um paradigma de programação que organiza o soft
 
 
 ## Exemplo Prático (Java)
-
+### 1. Abstração (Superclasse)
+- Definimos o que é essencial para qualquer veículo, mas sem implementar os detalhes de como cada um se move:
 ```java
-// Classe representando uma conta bancária
-public class ContaBancaria {
-    // Atributos privados (encapsulamento)
-    private double saldo;
-    private double limite;
-    private double valor;
+// Classe abstrata: Define o conceito, mas não pode ser instanciada diretamente
+public abstract class Veiculo {
+    private String marca;
 
-    // Construtor para inicializar saldo e limite
-    public ContaBancaria(double saldo, double limite){
-        this.saldo = saldo;
-        this.limite = limite;
-    }
-    
-    // Getters e Setters 
-    public double getSaldo(){
-        return saldo;
+    public Veiculo(String marca) {
+        this.marca = marca;
     }
 
-    public double getLimite(){
-        return limite;
-    }
+    // Método abstrato: Obriga as subclasses a implementarem sua própria lógica
+    public abstract void mover();
 
-    // Setter para o limite, com validação para evitar valores negativos
-    public void setLimite(double limite){ {
-        if (limite >= 0) {
-            this.limite = limite; 
-        } 
-        else {
-            System.out.println("[ERRO] O limite não pode ser negativo. Operação cancelada.");
-        }
+    public String getMarca() {
+        return marca;
     }
 }
-    // Método para realizar um saque, considerando o saldo e o limite
-    public void Sacar(double valor) { 
-        // validação para garantir que o valor do saque seja positivo
-        if (valor <= 0) {
-            System.out.println("[ERRO] O valor do saque deve ser maior que zero! Operação cancelada.");
-            return; 
-        }
-        // Calcula quanto o cliente tem no total
-        double disponivelTotal = this.saldo + this.limite;
+```
+### 2. Herança e Encapsulamento (Classe Carro)
+- `Carro` herda de `Veiculo` e protege seus atributos internos, expondo apenas o necessário via métodos públicos:
+```java
+public class Carro extends Veiculo {
+    // Encapsulamento: Atributos privados
+    private int velocidadeAtual;
+    private int capacidadeTanque;
 
-        // Verifica se o saque é possível
-        if (valor <= disponivelTotal) {
-            // Se sim, subtraímos do saldo (o saldo pode ficar negativo até o limite)
-            this.saldo -= valor; 
-            System.out.println("Saque de R$ " + valor + " realizado com sucesso!");
-        } 
-        else {
-            // Se não, avisamos o erro (regra de negócio violada)
-            System.out.println("[ERRO] Saldo e limite insuficientes para o saque de R$ " + valor);
+    public Carro(String marca, int capacidadeTanque) {
+        super(marca); // Chama o construtor da superclasse
+        this.capacidadeTanque = capacidadeTanque;
+        this.velocidadeAtual = 0;
+    }
+
+    // Getter e Setter com validação (Regra de Negócio)
+    public int getVelocidadeAtual() {
+        return velocidadeAtual;
+    }
+
+    public void acelerar(int incremento) {
+        if (incremento > 0) {
+            this.velocidadeAtual += incremento;
+            System.out.println("Acelerando... Velocidade: " + velocidadeAtual + " km/h");
+        } else {
+            System.out.println("[ERRO] O incremento deve ser positivo.");
         }
+    }
+
+    // Sobrescrita (Polimorfismo de inclusão)
+    @Override
+    public void mover() {
+        System.out.println("O carro da marca " + getMarca() + " está se deslocando pelas vias urbanas.");
     }
 }
 ```
