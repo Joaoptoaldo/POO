@@ -2,7 +2,10 @@ package animal;
 
 //Superclasse pai 
 class Animal {
-    void emitirSom() {
+    public String mamifero;
+
+    void emitirSom(String mamifero) {
+        this.mamifero = mamifero;
         System.out.println("O animal está emitindo um som.");
     }
 }

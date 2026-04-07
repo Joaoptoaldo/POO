@@ -7,6 +7,7 @@ public class executaPessoa {
 		Scanner leitor = new Scanner(System.in);
 		
 		Pessoa pessoa = new Pessoa();
+        
 		System.out.print("Informe o nome: ");
         pessoa.nome = leitor.nextLine();
         System.out.print("Informe a idade: ");

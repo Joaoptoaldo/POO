@@ -1,5 +1,7 @@
 //Crie uma classe executável onde o usúario indica o número de objetos do 
 //tipo Carro e exibir na tela os valores dos atributos criados
+package carro;
+
 import java.util.Scanner;
 
 public class executaCarro {

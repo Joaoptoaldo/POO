@@ -1,7 +1,8 @@
 package animal;
 
 public class Gato extends Animal {
-    void emitirSom(){
-        System.out.println("O gato está miando");
+    @Override
+    void emitirSom(String mamifero){
+        System.out.println("Miau! O " + mamifero + " está miando.");
     }
 }
