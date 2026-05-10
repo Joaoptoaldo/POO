@@ -56,11 +56,6 @@ Máquina de força bruta. Aquece muito e precisa de ciclos de arrefecimento.
 	- Cada peça prensada aumenta a temperatura da máquina em 1.5 graus e consome 2.0 kWh.
 	- Realize a produção, aumente a temperatura em conformidade, registe o lote e retorne true. (Nota: A máquina pode ultrapassar os 90 graus durante a produção do lote, o bloqueio só acontece se tentar iniciar um novo lote já estando acima do limite).
 
-Área: Ciências Tecnológicas  
-Curso: Sistemas de Informação  
-Disciplina: Programação Orientada a Objetos  
-Professor: Rafael Bisogno
-
 Nota para todas as subclasses: A primeira linha do produzirLote deve verificar se a máquina está desligada. Se estiver, lance MaquinaDesligadaException.
 
 ### D. Criação de Exceções Personalizadas (Alarmes da Fábrica):
