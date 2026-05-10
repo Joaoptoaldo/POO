@@ -1,6 +1,6 @@
 # Sistema de Folha de Pagamento Hospitalar
 
-O "Hospital de Caridade UFN" precisa de um sistema para processar a folha de pagamento dos seus funcionários. Embora todos sejam funcionários, os médicos, enfermeiros e a equipe administrativa possuem regras salariais completamente diferentes, como horas extra, insalubridade e plantões.
+O "Hospital de Caridade" precisa de um sistema para processar a folha de pagamento dos seus funcionários. Embora todos sejam funcionários, os médicos, enfermeiros e a equipe administrativa possuem regras salariais completamente diferentes, como horas extra, insalubridade e plantões.
 
 A sua tarefa é implementar as classes abaixo aplicando Encapsulamento, Herança e Polimorfismo.
 
