@@ -24,11 +24,6 @@ Esta classe define o comportamento padrão de qualquer equipamento na fábrica.
 
 ## 2. As Subclasses (Herança, Polimorfismo e Máquinas de Estado)
 
-Área: Ciências Tecnológicas  
-Curso: Sistemas de Informação  
-Disciplina: Programação Orientada a Objetos  
-Professor: Rafael Bisogno
-
 Deverá criar três subclasses. Em todas elas, a primeira regra do método produzirLote é: se a máquina estiver desligada, imprime um erro, retorna false e não faz mais nada.
 
 ### A. InjetoraPlastico
