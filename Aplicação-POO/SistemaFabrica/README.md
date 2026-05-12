@@ -24,11 +24,6 @@ Esta classe define o comportamento padrão de qualquer equipamento na fábrica.
 
 ## 2. As Subclasses (Herança, Polimorfismo e Máquinas de Estado)
 
-Área: Ciências Tecnológicas  
-Curso: Sistemas de Informação  
-Disciplina: Programação Orientada a Objetos  
-Professor: Rafael Bisogno
-
 Deverá criar três subclasses. Em todas elas, a primeira regra do método produzirLote é: se a máquina estiver desligada, imprime um erro, retorna false e não faz mais nada.
 
 ### A. InjetoraPlastico
@@ -60,11 +55,6 @@ Máquina de força bruta. Aquece muito e precisa de ciclos de arrefecimento.
 - Polimorfismo (produzirLote): * O limite térmico de segurança é 90.0 graus. Se a temperatura for igual ou superior a 90.0 graus antes de iniciar, lance SuperaquecimentoException.
 	- Cada peça prensada aumenta a temperatura da máquina em 1.5 graus e consome 2.0 kWh.
 	- Realize a produção, aumente a temperatura em conformidade, registe o lote e retorne true. (Nota: A máquina pode ultrapassar os 90 graus durante a produção do lote, o bloqueio só acontece se tentar iniciar um novo lote já estando acima do limite).
-
-Área: Ciências Tecnológicas  
-Curso: Sistemas de Informação  
-Disciplina: Programação Orientada a Objetos  
-Professor: Rafael Bisogno
 
 Nota para todas as subclasses: A primeira linha do produzirLote deve verificar se a máquina está desligada. Se estiver, lance MaquinaDesligadaException.
 
