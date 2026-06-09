@@ -28,12 +28,12 @@ Aqui está o mapeamento de onde cada um dos 7 requisito obrigatórios foi aplica
    - A criação e manipulação dos objetos ocorrem no fluxo do terminal em [Main.java](src/Main.java).
 
 2. **Construtores:**
-   - Implementação de construtor padrão (no-args) e parametrizados em [ItemAcervo.java](src/models/ItemAcervo.java#L11), [Livro.java](src/models/Livro.java#L13) e [Revista.java](src/models/Revista.java#L11).
+   - Implementação de construtor padrão (no-args) e parametrizados em [ItemAcervo.java](src/models/ItemAcervo.java#L16), [Livro.java](src/models/Livro.java#L13) e [Revista.java](src/models/Revista.java#L11).
    - Sobrecarga de construtores em [Livro.java](src/models/Livro.java#L13-L32) para permitir diferentes formas de inicialização.
 
 3. **Encapsulamento e Modificadores de Acesso:**
    - Atributos das classes de modelo definidos como `private`.
-   - Modificador `protected` no método `setDisponivel()` em [ItemAcervo.java](src/models/ItemAcervo.java#L48), visível apenas pelas subclasses.
+   - Modificador `protected` no método `setDisponivel()` em ItemAcervo.java, visível apenas pelas subclasses.
    - Métodos setters contendo validações (ex: ano de publicação em [Livro.java](src/models/Livro.java#L38-L44) e número da edição em [Revista.java](src/models/Revista.java#L36-L41)).
 
 4. **Herança:**
