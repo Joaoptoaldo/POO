@@ -46,7 +46,7 @@ Aqui está o mapeamento de onde cada um dos 7 requisito obrigatórios foi aplica
 
 6. **Classes Abstratas e Interfaces:**
    - Classe abstrata `ItemAcervo` com o método abstrato `calcularPrazoDevolucao()`.
-   - Interface [IEmprestavel.java](src/models/IEmprestavel.java) definindo a assinatura de métodos que padronizam o empréstimo de itens.
+   - Interface [IEmprestavel.java](src/interfaces/IEmprestavel.java) definindo a assinatura de métodos que padronizam o empréstimo de itens.
 
 7. **Tratamento de Exceções:**
    - Tratamento de erro de conversão com blocos `try-catch` em [Main.java](src/Main.java) para capturar `NumberFormatException` (linhas 26, 45, 89).
@@ -59,7 +59,7 @@ Aqui está o mapeamento de onde cada um dos 7 requisito obrigatórios foi aplica
 
 1. Compile o projeto a partir da raiz:
    ```bash
-   javac src/models/*.java src/exceptions/*.java src/Main.java -d bin
+   javac src/interfaces/*.java src/models/*.java src/exceptions/*.java src/Main.java -d bin
    ```
 2. Execute a classe Main:
    ```bash
