@@ -1,7 +1,10 @@
-package models;
+package interfaces;
 
 import exceptions.ItemIndisponivelException;
 
+/**
+ * interface que define a assinatura de métodos que padronizam o empréstimo de itens
+ */
 public interface IEmprestavel {
     /**
      * método que empresta o item

@@ -1,5 +1,10 @@
 package models;
 
+import interfaces.IEmprestavel;
+
+/**
+ * classe abstrata que representa um item do acervo
+ */
 public abstract class ItemAcervo implements IEmprestavel {
     private String titulo;
     private String autor;
