@@ -9,7 +9,8 @@ O projeto está dividido nos seguintes pacotes dentro de `src/`:
 - **`models`**:
   - `ItemAcervo`: Classe abstrata que serve de base para os itens. Define atributos comuns e o método abstrato de cálculo do prazo.
   - `Livro` e `Revista`: Subclasses que especializam o `ItemAcervo` e implementam as regras específicas de devolução e validação.
-  - `IEmprestavel`: Interface que define o contrato com as ações de `emprestar()` e `devolver()`.
+- **`interfaces`**:
+  - [`IEmprestavel.java`](src/interfaces/IEmprestavel.java): Interface que define o contrato com as ações de `emprestar()` e `devolver()`.
 - **`exceptions`**:
   - [`ItemIndisponivelException.java`](src/exceptions/ItemIndisponivelException.java): Exceção personalizada (checked) lançada quando se tenta emprestar um item que já está sob empréstimo.
 - **`Main.java`**:
