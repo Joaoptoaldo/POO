@@ -14,8 +14,7 @@ O projeto está dividido nos seguintes pacotes dentro de `src/`:
 - **`exceptions`**:
   - [`ItemIndisponivelException.java`](src/exceptions/ItemIndisponivelException.java): Exceção personalizada (checked) lançada quando se tenta emprestar um item que já está sob empréstimo.
 - **`Main.java`**:
-  - Além disso, o grupo deve criar e lançar ao menos uma exceção customizada (`ItemIndisponivelException`) para proteger as regras de negócio.
-  - O cadastro de livro está protegido por um loop `while` que garante a entrada válida antes de prosseguir.
+  - Contém o fluxo principal da aplicação, o menu interativo e o gerenciamento das operações do acervo.
 
 ---
 
@@ -29,7 +28,7 @@ Aqui está o mapeamento de onde cada um dos 7 requisito obrigatórios foi aplica
 
 2. **Construtores:**
    - Implementação de construtor padrão (no-args) e parametrizados em [ItemAcervo.java](src/models/ItemAcervo.java#L16), [Livro.java](src/models/Livro.java#L13) e [Revista.java](src/models/Revista.java#L11).
-   - Sobrecarga de construtores em [Livro.java](src/models/Livro.java#L13-L32) para permitir diferentes formas de inicialização.
+   - Sobrecarga de construtores nas classes [ItemAcervo.java](src/models/ItemAcervo.java#L16-L32), em [Livro.java](src/models/Livro.java#L13-L29) e [Revista.java](src/models/Revista.java#L11-L27) para permitir diferentes formas de inicialização dos objetos.
 
 3. **Encapsulamento e Modificadores de Acesso:**
    - Atributos das classes de modelo definidos como `private`.
@@ -41,18 +40,33 @@ Aqui está o mapeamento de onde cada um dos 7 requisito obrigatórios foi aplica
 
 5. **Polimorfismo:**
    - Sobrescrita de métodos (`@Override`):
-     - `calcularPrazoDevolucao()` reescrito em [Livro.java](src/models/Livro.java#L46-L49) (14 dias) e [Revista.java](src/models/Revista.java#L43-L46) (7 dias).
+     - `calcularPrazoDevolucao()` reescrito em [Livro.java](src/models/Livro.java#L47) (14 dias) e [Revista.java](src/models/Revista.java#L44) (7 dias).
      - `emprestar()` reescrito nas subclasses para mensagens customizadas.
-   - Polimorfismo de Inclusão: Armazenamento e processamento uniforme de subclasses na lista polimórfica `List<ItemAcervo> acervo` em [Main.java](src/Main.java#L13) e laço de iteração (linhas 57-73).
+   - Polimorfismo de Inclusão: Armazenamento e processamento uniforme de subclasses na lista polimórfica `List<ItemAcervo> acervo` em [Main.java](src/Main.java#L11) e laço de iteração.
+   - O método `consultarPrazoDevolucao()` em [Main.java](src/Main.java#L200) demonstra despacho dinâmico, pois a chamada item.calcularPrazoDevolucao() executa a implementação correta (Livro ou Revista) em tempo de execução.
 
 6. **Classes Abstratas e Interfaces:**
    - Classe abstrata `ItemAcervo` com o método abstrato `calcularPrazoDevolucao()`.
    - Interface [IEmprestavel.java](src/interfaces/IEmprestavel.java) definindo a assinatura de métodos que padronizam o empréstimo de itens.
 
 7. **Tratamento de Exceções:**
-   - Tratamento de erro de conversão com blocos `try-catch` em [Main.java](src/Main.java) para capturar `NumberFormatException` (linhas 26, 45, 89).
+   - Tratamento de erro de conversão com blocos `try-catch` em [Main.java](src/Main.java) para capturar `NumberFormatException`.
    - Exceção customizada [ItemIndisponivelException.java](src/exceptions/ItemIndisponivelException.java) para alertar tentativas de empréstimos duplicados.
-   - Try-Catch-Finally: a estrutura de simulação e tratamentos em [Main.java](src/Main.java) (linhas 60-70 e 76-98).
+   - Uso de try-catch para tratamento de entradas inválidas e exceções de negócio.
+   - Uso de try-catch-finally na operação de empréstimo para garantir a execução de uma ação final independentemente do resultado da operação.
+
+---
+
+## Problemas Resolvidos pelo Sistema
+
+### Inconsistência de Inventário
+O sistema impede empréstimos duplicados por meio da exceção customizada ItemIndisponivelException.
+
+### Corrupção de Dados
+Validações impedem o cadastro de livros com ano futuro e revistas com edição inválida.
+
+### Padronização dos Prazos de Devolução
+O cálculo do prazo é automatizado através de polimorfismo, retornando 14 dias para livros e 7 dias para revistas.
 
 ---
 

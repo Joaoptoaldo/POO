@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+
 import exceptions.ItemIndisponivelException;
 import models.ItemAcervo;
 import models.Livro;
@@ -25,6 +26,7 @@ public class Main {
             System.out.println("4 - Remover");
             System.out.println("5 - Empréstimo");
             System.out.println("6 - Devolução");
+            System.out.println("7 - Consultar prazo de devolução");
             System.out.println("0 - Sair\n");
             System.out.print("Opção: ");
 
@@ -50,14 +52,17 @@ public class Main {
                     case 6: 
                         simularDevolucao(acervo, leitor); 
                         break;
+                    case 7: 
+                        consultarPrazoDevolucao(acervo, leitor); 
+                        break;
                     case 0: 
                         System.out.println("Encerrando..."); 
                         break;
                     default: 
                         System.out.println("Opção inválida");
                 }
-            } catch (Exception e) {
-                System.out.println("Erro: Entrada inválida");
+            } catch (NumberFormatException e) {
+                System.out.println("Digite um número válido");
             }
         }
 
@@ -95,8 +100,13 @@ public class Main {
         String autor = leitor.nextLine();
         System.out.print("Ano: ");
         int ano = Integer.parseInt(leitor.nextLine());
-        acervo.add(new Livro(titulo, autor, ano));
-        System.out.println("Cadastrado!");
+        try {
+            acervo.add(new Livro(titulo, autor, ano));
+            System.out.println("Cadastrado!");
+        }
+        catch (IllegalArgumentException e) {
+            System.out.println("Erro: " + e.getMessage());
+        }
     }
 
     /**
@@ -111,8 +121,13 @@ public class Main {
         String autor = leitor.nextLine();
         System.out.print("Edição: ");
         int edicao = Integer.parseInt(leitor.nextLine());
-        acervo.add(new Revista(titulo, autor, edicao));
-        System.out.println("Cadastrado!");
+        try {
+            acervo.add(new Revista(titulo, autor, edicao));
+            System.out.println("Cadastrado!");
+        }
+        catch (IllegalArgumentException e) {
+            System.out.println("Erro: " + e.getMessage());
+        }
     }
 
     /**
@@ -122,13 +137,19 @@ public class Main {
      */
     private static void removerItem(List<ItemAcervo> acervo, Scanner leitor) {
         listarAcervo(acervo);
+        if (acervo.isEmpty()) return;
+
         System.out.print("ID para remover: ");
-        int id = Integer.parseInt(leitor.nextLine());
-        if (id >= 0 && id < acervo.size() && acervo.get(id).isDisponivel()) {
-            acervo.remove(id);
-            System.out.println("Removido");
-        } else {
-            System.out.println("Erro: Item não encontrado ou emprestado");
+        try {
+            int id = Integer.parseInt(leitor.nextLine());
+            if (id >= 0 && id < acervo.size() && acervo.get(id).isDisponivel()) {
+                acervo.remove(id);
+                System.out.println("Removido");
+            } else {
+                System.out.println("Erro: Item não encontrado ou está emprestado.");
+            }
+        } catch (NumberFormatException e) {
+            System.out.println("Erro: Digite um número válido para o ID.");
         }
     }
 
@@ -140,12 +161,15 @@ public class Main {
     private static void simularEmprestimo(List<ItemAcervo> acervo, Scanner leitor) {
         listarAcervo(acervo);
         System.out.print("ID para emprestar: ");
-        int id = Integer.parseInt(leitor.nextLine());
         try {
+            int id = Integer.parseInt(leitor.nextLine());
             acervo.get(id).emprestar();
             System.out.println("Emprestado");
         } catch (ItemIndisponivelException e) {
             System.out.println(e.getMessage());
+        }
+        finally {
+            System.out.println("Operação de empréstimo finalizada");
         }
     }
 
@@ -156,9 +180,33 @@ public class Main {
      */
     private static void simularDevolucao(List<ItemAcervo> acervo, Scanner leitor) {
         listarAcervo(acervo);
+        if (acervo.isEmpty()) return;
+
         System.out.print("ID para devolver: ");
-        int id = Integer.parseInt(leitor.nextLine());
-        acervo.get(id).devolver();
-        System.out.println("Devolvido");
+        try {
+            int id = Integer.parseInt(leitor.nextLine());
+            acervo.get(id).devolver();
+            System.out.println("Devolvido");
+        } catch (IndexOutOfBoundsException | NumberFormatException e) {
+            System.out.println("Erro: ID inválido");
+        }
+    }
+
+    /**
+     * método que consulta o prazo de devolução
+     * @param acervo lista de itens do acervo
+     * @param leitor scanner para leitura dos dados
+     */
+    private static void consultarPrazoDevolucao(List<ItemAcervo> acervo, Scanner leitor) {
+        listarAcervo(acervo);
+        System.out.print("ID para consultar prazo de devolução: ");
+        try {
+            int id = Integer.parseInt(leitor.nextLine());
+            ItemAcervo item = acervo.get(id);
+            System.out.println("Prazo: " + item.calcularPrazoDevolucao() + " dias");
+        }
+        catch (IndexOutOfBoundsException | NumberFormatException e) {
+            System.out.println("ID inválido");
+        }
     }
 }
