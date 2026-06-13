@@ -40,17 +40,17 @@ Aqui está o mapeamento de onde cada um dos 7 requisito obrigatórios foi aplica
 
 5. **Polimorfismo:**
    - Sobrescrita de métodos (`@Override`):
-     - `calcularPrazoDevolucao()` reescrito em [Livro.java](src/models/Livro.java#L47) (14 dias) e [Revista.java](src/models/Revista.java#L44) (7 dias).
+     - `calcularPrazoDevolucao()` reescrito em [Livro.java](src/models/Livro.java#L51) (14 dias) e [Revista.java](src/models/Revista.java#L48) (7 dias).
      - `emprestar()` reescrito nas subclasses para mensagens customizadas.
-   - Polimorfismo de Inclusão: Armazenamento e processamento uniforme de subclasses na lista polimórfica `List<ItemAcervo> acervo` em [Main.java](src/Main.java#L11) e laço de iteração.
-   - O método `consultarPrazoDevolucao()` em [Main.java](src/Main.java#L200) demonstra despacho dinâmico, pois a chamada item.calcularPrazoDevolucao() executa a implementação correta (Livro ou Revista) em tempo de execução.
+   - Polimorfismo de Inclusão: Armazenamento e processamento uniforme de subclasses na lista polimórfica `List<ItemAcervo> acervo` em [Main.java](src/Main.java#L12) e laço de iteração.
+   - O método `consultarPrazoDevolucao()` em [Main.java](src/Main.java#L223) demonstra despacho dinâmico, pois a chamada item.calcularPrazoDevolucao() executa a implementação correta (Livro ou Revista) em tempo de execução.
 
 6. **Classes Abstratas e Interfaces:**
    - Classe abstrata `ItemAcervo` com o método abstrato `calcularPrazoDevolucao()`.
    - Interface [IEmprestavel.java](src/interfaces/IEmprestavel.java) definindo a assinatura de métodos que padronizam o empréstimo de itens.
 
 7. **Tratamento de Exceções:**
-   - Tratamento de erro de conversão com blocos `try-catch` em [Main.java](src/Main.java) para capturar `NumberFormatException`.
+   - Tratamento de erro de conversão com blocos `try-catch` em [Main.java](src/Main.java#L33-L66) para capturar `NumberFormatException`.
    - Exceção customizada [ItemIndisponivelException.java](src/exceptions/ItemIndisponivelException.java) para alertar tentativas de empréstimos duplicados.
    - Uso de try-catch para tratamento de entradas inválidas e exceções de negócio.
    - Uso de try-catch-finally na operação de empréstimo para garantir a execução de uma ação final independentemente do resultado da operação.
@@ -70,7 +70,7 @@ O cálculo do prazo é automatizado através de polimorfismo, retornando 14 dias
 
 ---
 
-## Como Rodar o Projeto
+## Como Rodar Localmente
 
 1. Compile o projeto a partir da raiz:
    ```bash
