@@ -69,7 +69,19 @@ public class Main {
         leitor.close();
     }
 
-   // métodos auxiliares
+    // métodos auxiliares
+
+    /**
+     * método que valida se um campo de texto está vazio ou contém apenas espaços
+     * @param valor conteúdo do campo
+     * @param nomeCampo nome do campo para exibição no erro
+     * @throws IllegalArgumentException se o campo estiver vazio
+     */
+    private static void validarCampo(String valor, String nomeCampo) {
+        if (valor == null || valor.trim().isEmpty()) { // remove espaços em branco do início e do fim do texto e verifica se está vazio
+            throw new IllegalArgumentException("O campo '" + nomeCampo + "' não pode estar vazio!");
+        }
+    }
 
     /**
      * método que lista o acervo
@@ -94,17 +106,22 @@ public class Main {
      * @param leitor scanner para leitura dos dados
      */
     private static void cadastrarLivro(List<ItemAcervo> acervo, Scanner leitor) {
-        System.out.print("Título: ");
-        String titulo = leitor.nextLine();
-        System.out.print("Autor: ");
-        String autor = leitor.nextLine();
-        System.out.print("Ano: ");
-        int ano = Integer.parseInt(leitor.nextLine());
         try {
+            System.out.print("Título: ");
+            String titulo = leitor.nextLine();
+            validarCampo(titulo, "Título");
+
+            System.out.print("Autor: ");
+            String autor = leitor.nextLine();
+            validarCampo(autor, "Autor");
+
+            System.out.print("Ano: ");
+            int ano = Integer.parseInt(leitor.nextLine());
+
             acervo.add(new Livro(titulo, autor, ano));
             System.out.println("Cadastrado!");
-        }
-        catch (IllegalArgumentException e) {
+
+        } catch (IllegalArgumentException e) {
             System.out.println("Erro: " + e.getMessage());
         }
     }
@@ -115,17 +132,22 @@ public class Main {
      * @param leitor scanner para leitura dos dados
      */
     private static void cadastrarRevista(List<ItemAcervo> acervo, Scanner leitor) {
-        System.out.print("Título: ");
-        String titulo = leitor.nextLine();
-        System.out.print("Autor: ");
-        String autor = leitor.nextLine();
-        System.out.print("Edição: ");
-        int edicao = Integer.parseInt(leitor.nextLine());
         try {
+            System.out.print("Título: ");
+            String titulo = leitor.nextLine();
+            validarCampo(titulo, "Título");
+
+            System.out.print("Autor: ");
+            String autor = leitor.nextLine();
+            validarCampo(autor, "Autor");
+
+            System.out.print("Edição: ");
+            int edicao = Integer.parseInt(leitor.nextLine());
+
             acervo.add(new Revista(titulo, autor, edicao));
             System.out.println("Cadastrado!");
-        }
-        catch (IllegalArgumentException e) {
+
+        } catch (IllegalArgumentException e) {
             System.out.println("Erro: " + e.getMessage());
         }
     }
@@ -146,10 +168,10 @@ public class Main {
                 acervo.remove(id);
                 System.out.println("Removido");
             } else {
-                System.out.println("Erro: Item não encontrado ou está emprestado.");
+                System.out.println("Erro: Item não encontrado ou está emprestado");
             }
         } catch (NumberFormatException e) {
-            System.out.println("Erro: Digite um número válido para o ID.");
+            System.out.println("Erro: Digite um número válido para o ID");
         }
     }
 
@@ -165,10 +187,10 @@ public class Main {
             int id = Integer.parseInt(leitor.nextLine());
             acervo.get(id).emprestar();
             System.out.println("Emprestado");
+
         } catch (ItemIndisponivelException e) {
             System.out.println(e.getMessage());
-        }
-        finally {
+        } finally {
             System.out.println("Operação de empréstimo finalizada");
         }
     }
@@ -180,13 +202,14 @@ public class Main {
      */
     private static void simularDevolucao(List<ItemAcervo> acervo, Scanner leitor) {
         listarAcervo(acervo);
-        if (acervo.isEmpty()) return;
+        if (acervo.isEmpty()) return; 
 
         System.out.print("ID para devolver: ");
         try {
             int id = Integer.parseInt(leitor.nextLine());
             acervo.get(id).devolver();
             System.out.println("Devolvido");
+
         } catch (IndexOutOfBoundsException | NumberFormatException e) {
             System.out.println("Erro: ID inválido");
         }

@@ -35,9 +35,13 @@ public class Livro extends ItemAcervo {
     return anoPublicacao;
   }
 
+  /**
+   * método que define o ano de publicação do livro
+   * @param anoPublicacao ano de publicação
+   */
   public void setAnoPublicacao(int anoPublicacao) {
     int anoAtual = Year.now().getValue(); //pega o ano atual automaticamente
-    if (anoPublicacao > anoAtual) {
+    if (anoPublicacao > anoAtual || anoPublicacao < 0) {
         throw new IllegalArgumentException("Ano de publicação inválido");
     }
     this.anoPublicacao = anoPublicacao;

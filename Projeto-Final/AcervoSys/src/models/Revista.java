@@ -33,9 +33,13 @@ public class Revista extends ItemAcervo {
     return edicao;
   }
 
+  /**
+   * método que define a edição da revista
+   * @param edicao número da edição
+   */
   public void setEdicao(int edicao) {
     if (edicao <= 0) {
-        throw new IllegalArgumentException("O número da edição deve ser positivo");
+      throw new IllegalArgumentException("O número da edição deve ser positivo!");
     }
     this.edicao = edicao;
   }
