@@ -69,6 +69,7 @@ public class Main {
         leitor.close();
     }
 
+    
     // métodos auxiliares
 
     /**
@@ -158,7 +159,6 @@ public class Main {
     private static void removerItem(List<ItemAcervo> acervo, Scanner leitor) {
         listarAcervo(acervo);
         if (acervo.isEmpty()) return;
-
         System.out.print("\nID para remover: ");
         try {
             int id = Integer.parseInt(leitor.nextLine());
@@ -222,6 +222,7 @@ public class Main {
      */
     private static void consultarPrazoDevolucao(List<ItemAcervo> acervo, Scanner leitor) {
         listarAcervo(acervo);
+        if (acervo.isEmpty()) return; 
         System.out.print("\nID para consultar prazo de devolução: ");
         try {
             int id = Integer.parseInt(leitor.nextLine());
