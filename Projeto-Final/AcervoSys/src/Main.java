@@ -89,14 +89,12 @@ public class Main {
      */
     private static void listarAcervo(List<ItemAcervo> acervo) {
         System.out.println("\nLista de itens do acervo:");
-
         if (acervo.isEmpty()) {
             System.out.println("Acervo vazio");
             return;
         }
-
         for (int i = 0; i < acervo.size(); i++) {
-            System.out.println(i + ": " + acervo.get(i).getTitulo());
+            System.out.println(i + ": " + acervo.get(i).getTitulo()+ " - " + acervo.get(i).getAutor() + (acervo.get(i).isDisponivel() ? " (Disponível)" : " (Indisponível)"));
         }
     }
 
@@ -161,7 +159,7 @@ public class Main {
         listarAcervo(acervo);
         if (acervo.isEmpty()) return;
 
-        System.out.print("ID para remover: ");
+        System.out.print("\nID para remover: ");
         try {
             int id = Integer.parseInt(leitor.nextLine());
             if (id >= 0 && id < acervo.size() && acervo.get(id).isDisponivel()) {
@@ -182,7 +180,8 @@ public class Main {
      */
     private static void simularEmprestimo(List<ItemAcervo> acervo, Scanner leitor) {
         listarAcervo(acervo);
-        System.out.print("ID para emprestar: ");
+        if (acervo.isEmpty()) return;
+        System.out.print("\nID para emprestar: ");
         try {
             int id = Integer.parseInt(leitor.nextLine());
             acervo.get(id).emprestar();
@@ -190,6 +189,8 @@ public class Main {
 
         } catch (ItemIndisponivelException e) {
             System.out.println(e.getMessage());
+        } catch (IndexOutOfBoundsException | NumberFormatException e) {
+            System.out.println("Erro: ID inválido");
         } finally {
             System.out.println("Operação de empréstimo finalizada");
         }
@@ -203,8 +204,7 @@ public class Main {
     private static void simularDevolucao(List<ItemAcervo> acervo, Scanner leitor) {
         listarAcervo(acervo);
         if (acervo.isEmpty()) return; 
-
-        System.out.print("ID para devolver: ");
+        System.out.print("\nID para devolver: ");
         try {
             int id = Integer.parseInt(leitor.nextLine());
             acervo.get(id).devolver();
@@ -222,11 +222,11 @@ public class Main {
      */
     private static void consultarPrazoDevolucao(List<ItemAcervo> acervo, Scanner leitor) {
         listarAcervo(acervo);
-        System.out.print("ID para consultar prazo de devolução: ");
+        System.out.print("\nID para consultar prazo de devolução: ");
         try {
             int id = Integer.parseInt(leitor.nextLine());
             ItemAcervo item = acervo.get(id);
-            System.out.println("Prazo: " + item.calcularPrazoDevolucao() + " dias");
+            System.out.println("Prazo: " + item.calcularPrazoDevolucao() + " dias" + "\nItem: " + item.getTitulo());
         }
         catch (IndexOutOfBoundsException | NumberFormatException e) {
             System.out.println("ID inválido");
