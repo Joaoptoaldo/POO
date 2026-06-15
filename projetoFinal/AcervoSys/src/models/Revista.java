@@ -56,4 +56,9 @@ public class Revista extends ItemAcervo {
     }
     setDisponivel(false);
   }
+
+  @Override
+  public String toString() {
+    return "[Revista] " + super.toString();
+  }
 }

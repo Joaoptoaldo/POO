@@ -65,11 +65,9 @@ public class Main {
                 System.out.println("Digite um número válido");
             }
         }
-
         leitor.close();
     }
 
-    
     // métodos auxiliares
 
     /**
@@ -80,7 +78,7 @@ public class Main {
      */
     private static void validarCampo(String valor, String nomeCampo) {
         if (valor == null || valor.trim().isEmpty()) { // remove espaços em branco do início e do fim do texto e verifica se está vazio
-            throw new IllegalArgumentException("O campo '" + nomeCampo + "' não pode estar vazio!");
+            throw new IllegalArgumentException("\nO campo '" + nomeCampo + "' não pode estar vazio!");
         }
     }
 
@@ -90,12 +88,14 @@ public class Main {
      */
     private static void listarAcervo(List<ItemAcervo> acervo) {
         System.out.println("\nLista de itens do acervo:");
+        
         if (acervo.isEmpty()) {
             System.out.println("Acervo vazio");
             return;
         }
+        
         for (int i = 0; i < acervo.size(); i++) {
-            System.out.println(i + ": " + acervo.get(i).getTitulo()+ " - " + acervo.get(i).getAutor() + (acervo.get(i).isDisponivel() ? " (Disponível)" : " (Indisponível)"));
+            System.out.println(i + ": " + acervo.get(i).toString());
         }
     }
 
@@ -122,6 +122,8 @@ public class Main {
 
         } catch (IllegalArgumentException e) {
             System.out.println("Erro: " + e.getMessage());
+        } catch (Exception e) {
+            System.out.println("Erro inesperado ao cadastrar livro");
         }
     }
 
@@ -148,6 +150,8 @@ public class Main {
 
         } catch (IllegalArgumentException e) {
             System.out.println("Erro: " + e.getMessage());
+        } catch (Exception e) {
+            System.out.println("Erro inesperado ao cadastrar revista");
         }
     }
 
@@ -159,6 +163,7 @@ public class Main {
     private static void removerItem(List<ItemAcervo> acervo, Scanner leitor) {
         listarAcervo(acervo);
         if (acervo.isEmpty()) return;
+
         System.out.print("\nID para remover: ");
         try {
             int id = Integer.parseInt(leitor.nextLine());
@@ -170,7 +175,7 @@ public class Main {
             }
         } catch (NumberFormatException e) {
             System.out.println("Erro: Digite um número válido para o ID");
-        }
+        } 
     }
 
     /**
@@ -181,11 +186,12 @@ public class Main {
     private static void simularEmprestimo(List<ItemAcervo> acervo, Scanner leitor) {
         listarAcervo(acervo);
         if (acervo.isEmpty()) return;
+
         System.out.print("\nID para emprestar: ");
         try {
             int id = Integer.parseInt(leitor.nextLine());
             acervo.get(id).emprestar();
-            System.out.println("Emprestado");
+            System.out.println("Emprestado: " + acervo.get(id).getTitulo() + " - " + acervo.get(id).getAutor());
 
         } catch (ItemIndisponivelException e) {
             System.out.println(e.getMessage());
@@ -204,11 +210,12 @@ public class Main {
     private static void simularDevolucao(List<ItemAcervo> acervo, Scanner leitor) {
         listarAcervo(acervo);
         if (acervo.isEmpty()) return; 
+
         System.out.print("\nID para devolver: ");
         try {
             int id = Integer.parseInt(leitor.nextLine());
             acervo.get(id).devolver();
-            System.out.println("Devolvido");
+            System.out.println("Devolvido: " + acervo.get(id).getTitulo() + " - " + acervo.get(id).getAutor());
 
         } catch (IndexOutOfBoundsException | NumberFormatException e) {
             System.out.println("Erro: ID inválido");
@@ -223,14 +230,16 @@ public class Main {
     private static void consultarPrazoDevolucao(List<ItemAcervo> acervo, Scanner leitor) {
         listarAcervo(acervo);
         if (acervo.isEmpty()) return; 
+
         System.out.print("\nID para consultar prazo de devolução: ");
         try {
             int id = Integer.parseInt(leitor.nextLine());
             ItemAcervo item = acervo.get(id);
             System.out.println("Prazo: " + item.calcularPrazoDevolucao() + " dias" + "\nItem: " + item.getTitulo());
-        }
-        catch (IndexOutOfBoundsException | NumberFormatException e) {
+
+        } catch (IndexOutOfBoundsException | NumberFormatException e) {
             System.out.println("ID inválido");
         }
     }
+    
 }

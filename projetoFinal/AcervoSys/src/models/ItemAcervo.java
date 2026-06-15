@@ -73,4 +73,13 @@ public abstract class ItemAcervo implements IEmprestavel {
      */
     public abstract int calcularPrazoDevolucao();
 
+    /**
+     * método que retorna a representação em string do item
+     * @return string formatada contendo o título, autor e disponibilidade do item
+     */
+    @Override
+    public String toString() {
+        return String.format("%s - %s [%s]", titulo, autor, (disponivel ? "Disponível" : "Indisponível"));
+    }
+
 }
