@@ -2,7 +2,7 @@
 
 Este projeto é um sistema simples em Java que simula o controle de um acervo de biblioteca, permitindo cadastrar livros e revistas, gerenciar a disponibilidade de empréstimos e calcular prazos de devolução.
 
-## Tecnologias e Conceitos Aplicados
+## Conceitos Aplicados
 
 O projeto está dividido nos seguintes pacotes dentro de `src/`:
 
@@ -20,7 +20,7 @@ O projeto está dividido nos seguintes pacotes dentro de `src/`:
 
 ## Mapeamento dos Requisitos de POO
 
-Aqui está o mapeamento de onde cada um dos 7 requisito obrigatórios foi aplicado:
+Aqui está o mapeamento de onde cada um dos 7 requisitos obrigatórios foi aplicado:
 
 1. **Classes, Objetos e Atributos:**
    - As entidades estão em `src/models/` ([ItemAcervo.java](src/models/ItemAcervo.java), [Livro.java](src/models/Livro.java) e [Revista.java](src/models/Revista.java)).
@@ -54,6 +54,22 @@ Aqui está o mapeamento de onde cada um dos 7 requisito obrigatórios foi aplica
    - Exceção customizada [ItemIndisponivelException.java](src/exceptions/ItemIndisponivelException.java) para alertar tentativas de empréstimos duplicados.
    - Uso de try-catch para tratamento de entradas inválidas e exceções de negócio.
    - Uso de try-catch-finally na operação de empréstimo para garantir a execução de uma ação final independentemente do resultado da operação.
+
+---
+## Diagrama da Arquitetura do Sistema
+
+![Diagrama da Arquitetura do Sistema](docs/arquitetura_acervosys.png)
+
+---
+
+## Fluxo da Aplicação
+
+1. O sistema inicia com um acervo pré-cadastrado.
+2. O usuário seleciona uma opção no menu.
+3. O sistema executa a operação solicitada.
+4. Validações e regras de negócio são aplicadas.
+5. O acervo é atualizado.
+6. O menu é exibido novamente até o encerramento.
 
 ---
 
