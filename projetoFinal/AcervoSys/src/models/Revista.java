@@ -50,14 +50,6 @@ public class Revista extends ItemAcervo {
   }
 
   @Override
-  public void emprestar() throws ItemIndisponivelException {
-    if (!isDisponivel()) {
-      throw new ItemIndisponivelException("A revista edição nº " + getEdicao() + " não está disponível");
-    }
-    setDisponivel(false);
-  }
-
-  @Override
   public String toString() {
     return "[Revista] " + super.toString();
   }

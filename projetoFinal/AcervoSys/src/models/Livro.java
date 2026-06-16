@@ -53,14 +53,6 @@ public class Livro extends ItemAcervo {
   }
 
   @Override
-  public void emprestar() throws ItemIndisponivelException {
-    if (!isDisponivel()) {
-      throw new ItemIndisponivelException("O livro '" + getTitulo() + "' já se encontra emprestado");
-    }
-    setDisponivel(false);
-  }
-
-  @Override
   public String toString() {
     return "[Livro] " + super.toString();
   }

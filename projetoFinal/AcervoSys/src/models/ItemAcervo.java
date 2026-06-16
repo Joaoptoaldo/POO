@@ -1,5 +1,6 @@
 package models;
 
+import exceptions.ItemIndisponivelException;
 import interfaces.IEmprestavel;
 
 /**
@@ -55,6 +56,14 @@ public abstract class ItemAcervo implements IEmprestavel {
     }    
 
     @Override
+    public void emprestar() throws ItemIndisponivelException {
+      if (!isDisponivel()) {
+        throw new ItemIndisponivelException("O item '" + getTitulo() + "' já se encontra emprestado");
+      }
+      setDisponivel(false);
+    }
+
+    @Override
     public void devolver() {
         this.disponivel = true;
     }
@@ -81,5 +90,4 @@ public abstract class ItemAcervo implements IEmprestavel {
     public String toString() {
         return String.format("%s - %s [%s]", titulo, autor, (disponivel ? "Disponível" : "Indisponível"));
     }
-
 }
