@@ -41,7 +41,7 @@ Aqui está o mapeamento de onde cada um dos 7 requisitos obrigatórios foi aplic
 5. **Polimorfismo:**
    - Sobrescrita de métodos (`@Override`):
      - `calcularPrazoDevolucao()` reescrito em [Livro.java](src/models/Livro.java#L51) (14 dias) e [Revista.java](src/models/Revista.java#L48) (7 dias).
-     - `emprestar()` reescrito nas subclasses para mensagens customizadas.
+     - O método `emprestar()` foi centralizado em ItemAcervo, permitindo reutilização da regra de negócio comum a todos os itens do acervo.
    - Polimorfismo de Inclusão: Armazenamento e processamento uniforme de subclasses na lista polimórfica `List<ItemAcervo> acervo` em [Main.java](src/Main.java#L12) e laço de iteração.
    - O método `consultarPrazoDevolucao()` em [Main.java](src/Main.java#L230) demonstra despacho dinâmico, pois a chamada item.calcularPrazoDevolucao() executa a implementação correta (Livro ou Revista) em tempo de execução.
 
